@@ -30,5 +30,5 @@ export class CreateUserDto {
 
   @IsBase64()
   @IsOptional({ message: 'Photo is optional' })
-  photo: Buffer;
+  photo: string;
 }

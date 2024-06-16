@@ -18,55 +18,6 @@ async function createTeacher(name, department, photo) {
   }
 }
 
-async function createUser(name, email, password, department, course, photo) {
-  try {
-    const newUser = await prisma.user.create({
-      data: {
-        name,
-        email,
-        password,
-        department,
-        course,
-        photo: Buffer.from(photo),
-      },
-    });
-    console.log('Novo usuário criado:', newUser);
-  } catch (error) {
-    console.log('Erro ao criar usuário', error);
-  }
-}
-
-async function createAssessment(content, userId, subjectId, teacherId) {
-  try {
-    const newAssessment = await prisma.assessment.create({
-      data: {
-        content,
-        userId,
-        subjectId,
-        teacherId,
-      },
-    });
-    console.log('Nova avaliação criada.', newAssessment);
-  } catch (error) {
-    console.error('Erro ao criar avaliação.', error);
-  }
-}
-
-async function createComment(content, userId, assessmentId) {
-  try {
-    const newComment = await prisma.comment.create({
-      data: {
-        content,
-        userId,
-        assessmentId,
-      },
-    });
-    console.log('Novo comentário adicionado.', newComment);
-  } catch (error) {
-    console.log('Erro ao adicionar comentário.', error);
-  }
-}
-
 async function createSubjects(name) {
   try {
     const newSubjects = await prisma.subject.create({
@@ -96,7 +47,6 @@ async function createTeacherSubjects(teacherId, subjectId) {
 
 async function main() {
   await createTeacher('Carlos Louro', 'CIC', "https://t3.ftcdn.net/jpg/03/58/90/78/360_F_358907879_Vdu96gF4XVhjCZxN2kCG0THTsSQi8IhT.jpg"); //t1
-  await createUser('Adrielly', 'limaadrielly@example.com', '1234567', 'CIC', 'Ciência da Computação', 'https://rockntech.com.br/wp-content/uploads/2015/02/selfies-de-gatos_2.jpg');
   await createSubjects('APC'); //1
   await createSubjects('Cálculo I'); //2
   await createSubjects('Álgebra Linear'); //3

@@ -15,7 +15,7 @@ model User {
   password    String      
   department String
   course      String
-  photo       Bytes?
+  photo       String?
   assessments Assessment[]  // 1 to n - Um usuário pode possuir muitas avaliações
   comments    Comment[]     // 1 to n - Um usuário pode possuir muitos comentários
   created_at  DateTime      @default(now())

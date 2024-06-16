@@ -30,5 +30,5 @@ export class UpdateUserDto {
 
   @IsBase64()
   @IsOptional()
-  photo?: Buffer;
+  photo?: string;
 }
